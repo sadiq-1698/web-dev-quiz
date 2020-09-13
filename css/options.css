@@ -22,6 +22,44 @@
     background: lightgray;
 }
 
+.correct {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    padding: 0.7rem;
+    transition: .3s ease;
+    background: lightgreen;
+}
+
+.correct:hover {
+    background: lightgreen;
+    cursor: pointer;
+}
+
+.wrong {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    padding: 0.7rem;
+    transition: .3s ease;
+    background:lightcoral;
+}
+
+.wrong:hover {
+    background: lightcoral;
+    cursor: pointer;
+}
+
+.disable {
+    pointer-events: none;
+}
+
 .container .options-container .option .option-text-container span {
     height: 100%;
     width: 100%;
@@ -31,6 +69,6 @@
     color: white;
     font-size: 75%;
     cursor: pointer;
-    color : goldenrod;
+    font-weight: bold;
+    color: goldenrod;
 }
-

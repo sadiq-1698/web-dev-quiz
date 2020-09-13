@@ -1,0 +1,45 @@
+.modal-container{
+    width : 250px;
+    height : 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius : 10px;
+    border : 2px solid skyblue;
+}
+
+.modal-container .intro-dialogue{
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.modal-container .intro-dialogue h4 .golden-dialogue{
+    color: goldenrod;
+    font-size : 20px;
+}
+
+.modal-container .bring-it-on{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 40px;
+    width : 60px;
+}
+
+.modal-container .bring-it-on button{
+    padding :  8px 40px;
+    outline: none;
+    border-radius: 10px;
+    border : 2px solid skyblue;
+    background: transparent;
+    cursor: pointer;
+    color : white;
+    margin-bottom: 8px;
+}
+
+.modal-container .bring-it-on button:hover{
+    background: lightgray;
+    color: goldenrod;
+}

@@ -1,0 +1,285 @@
+const easyQuestions = [{
+        id: 1,
+        question: 'What is the correct HTML for referring to an external style sheet?',
+        op1: '&ltstylesheet&gtmystyle.css&lt/stylesheet&gt',
+        op2: '&ltlink src="style.css" rel="stylesheet"&gt',
+        op3: '&ltstyle src="style.css"&gt',
+        op4: '&ltcascade src="style.css"&gt',
+        answer: this.op2,
+    },
+
+    {
+        id: 2,
+        question: 'Where in an HTML document is the correct place to refer to an external style sheet?',
+        op1: 'At the end of the document',
+        op2: 'In the &lttitle&gt section',
+        op3: 'In the &lthead&gt section',
+        op4: 'In the &ltbody&gt section',
+        answer: this.op3,
+    },
+
+    {
+        id: 3,
+        question: 'Which HTML tag is used to define an internal style sheet?',
+        op1: '&ltcss&gt',
+        op2: '&ltstyle&gt',
+        op3: '&ltscript&gt',
+        op4: '&ltcascade&gt',
+        answer: this.op2,
+    },
+
+    {
+        id: 4,
+        question: 'Which HTML attribute is used to define inline styles?',
+        op1: 'style',
+        op2: 'cascade',
+        op3: 'class',
+        op4: 'font',
+        answer: this.op1,
+    },
+
+    {
+        id: 5,
+        question: 'Which is the correct CSS syntax?',
+        op1: 'body { background-color: red; }',
+        op2: 'body : background-color: {red};',
+        op3: '{body = background-color: red; }',
+        op4: '{body : background-color = red; }',
+        answer: this.op1,
+    },
+
+    {
+        id: 6,
+        question: 'How do you add a background color for all &lth1&gt elements?',
+        op1: 'h1{ background-color : black;}',
+        op2: 'h1.all{ background-color : black; }',
+        op3: 'all.h1 { background-color : black; } ',
+        op4: 'h1 { background-color = black; }',
+        answer: this.op1,
+    },
+
+    {
+        id: 7,
+        question: 'What does HTML stand for?',
+        op1: 'Hyper Text Markup Language',
+        op2: 'Hyperlinks and Text Markup Language',
+        op3: 'Home Tool Markup Language',
+        op4: 'Header Tool Markup Language',
+        answer: this.op1,
+    },
+
+    {
+        id: 8,
+        question: 'What is the correct HTML element to define emphasized text',
+        op1: '&ltitalic&gt',
+        op2: '&ltbold&gt',
+        op3: '&ltem&gt',
+        op4: '&lti&gt',
+        answer: this.op3,
+    },
+
+    {
+        id: 9,
+        question: 'Which character is used to indicate an end tag?',
+        op1: '*',
+        op2: '<',
+        op3: '/',
+        op4: '^',
+        answer: this.op3,
+    },
+
+    {
+        id: 10,
+        question: 'Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?',
+        op1: 'src',
+        op2: 'longdesc',
+        op3: 'title',
+        op4: 'alt',
+        answer: this.op4,
+    },
+
+    {
+        id: 11,
+        question: 'Inside which HTML element do we put the JavaScript?',
+        op1: '&ltjavascript&gt',
+        op2: '&ltscript&gt',
+        op3: '&ltscripting&gt',
+        op4: '&ltjs&gt',
+        answer: this.op2,
+    },
+
+    {
+        id: 12,
+        question: `What is the output of the following code?<br><br>var a;<br>console.log(a === 1)`,
+        op1: 'error',
+        op2: 'true',
+        op3: 'undefined',
+        op4: 'false',
+        answer: this.op4,
+    },
+
+    {
+        id: 13,
+        question: 'Which event occurs when the user clicks on an HTML element?',
+        op1: 'onchange',
+        op2: 'onmouseover',
+        op3: 'onmouseclick',
+        op4: 'onclick',
+        answer: this.op4,
+    },
+
+    {
+        id: 14,
+        question: `What is the output of the following code?<br><br>Boolean(10>9)`,
+        op1: 'error',
+        op2: 'false',
+        op3: 'true',
+        op4: 'undefined',
+        answer: this.op3,
+    },
+
+    {
+        id: 15,
+        question: 'Which of these will throw a SyntaxError?',
+        op1: 'if (x == 1) { }',
+        op2: 'if (x = 1) { }',
+        op3: 'if (x ==== 1) { }',
+        op4: 'if (x === 1) { }',
+        answer: this.op3,
+    },
+
+];
+
+var ASKED_QUESTIONS = [];
+var CURRENT_QUESTION_NUMBER = 0;
+var CURRENT_CORRECT_OPTION = "";
+var CHOSE_FIFTY_FIFTY = false;
+var CHOSE_SECOND_CHANCE = false;
+
+var START_GAME_BUTTON = document.getElementById('start-game');
+START_GAME_BUTTON.addEventListener('click', startGame);
+
+function startGame() {
+    setTimeout(() => {
+        document.getElementById('temp-body').style.display = 'none';
+        displayQuestion();
+        document.getElementById('game-container').style.display = 'block';
+    }, 250);
+}
+
+function onOptionChoose(id) {
+    var chosenElement = document.getElementById(id);
+    var chosenOption = chosenElement.innerText.trim();
+    var correctOption = CURRENT_CORRECT_OPTION.innerText.trim();
+    var correctOptionID = getCurrentQuestionId();
+    disableOptions();
+    if (isEqual(chosenOption, correctOption)) {
+        updateBackgroundUponCorrect(id);
+        setTimeout(() => {
+            markCompleteQuestions();
+            displayQuestion();
+            enableOptions();
+        }, 1500);
+    } else {
+        updateBackgroundUponCorrect(correctOptionID);
+        updateBackgroundUponWrong(id);
+        setTimeout(() => {
+            markCompleteQuestions();
+            displayQuestion();
+            enableOptions();
+        }, 1500);
+    }
+}
+
+function displayQuestion() {
+    CURRENT_QUESTION_NUMBER++;
+    if (isSixteenthQuestion()) return;
+    var randomQuestion = Math.floor(Math.random() * easyQuestions.length);
+    while (ASKED_QUESTIONS.includes(randomQuestion)) {
+        randomQuestion = Math.floor(Math.random() * easyQuestions.length);
+    }
+    setDefaultOptionBackground();
+    setQuestionNumber();
+    setQuestion(randomQuestion);
+    setOptions(randomQuestion);
+    CURRENT_CORRECT_OPTION = easyQuestions[randomQuestion].answer;
+    ASKED_QUESTIONS.push(randomQuestion);
+}
+
+function isSixteenthQuestion() {
+    if (CURRENT_QUESTION_NUMBER > 15) return true;
+    return false;
+}
+
+function isEqual(a, b) {
+    if (a === b) {
+        return true;
+    }
+    return false;
+}
+
+function markCompleteQuestions() {
+    var element = document.getElementById('circle-' + String(CURRENT_QUESTION_NUMBER));
+    element.style.color = 'green';
+    element.style.border = '2px solid green';
+}
+
+function setDefaultOptionBackground() {
+    var array = ['op1-container', 'op2-container', 'op3-container', 'op4-container'];
+    array.forEach(element => {
+        var temp = document.getElementById(element);
+        temp.classList.remove('correct');
+        temp.classList.remove('wrong');
+        temp.classList.add("option");
+    });
+}
+
+function setQuestionNumber() {
+    document.getElementById('question-number').innerHTML = CURRENT_QUESTION_NUMBER;
+}
+
+function setQuestion(index) {
+    document.getElementById('question').innerHTML = easyQuestions[index].question;
+}
+
+function setOptions(index) {
+    document.getElementById('op1').innerHTML = easyQuestions[index].op1;
+    document.getElementById('op2').innerHTML = easyQuestions[index].op2;
+    document.getElementById('op3').innerHTML = easyQuestions[index].op3;
+    document.getElementById('op4').innerHTML = easyQuestions[index].op4;
+}
+
+function updateBackgroundUponCorrect(id) {
+    var element = document.getElementById(id);
+    element.classList.add("correct");
+    element.classList.remove("option");
+}
+
+function updateBackgroundUponWrong(id) {
+    var element = document.getElementById(id);
+    element.classList.add("wrong");
+    element.classList.remove("option");
+}
+
+function getCurrentQuestionId() {
+    var getIndex = ASKED_QUESTIONS[ASKED_QUESTIONS.length - 1];
+    var correctAnswer = easyQuestions[getIndex].answer;
+    var correctAnswerId = correctAnswer.id.trim();
+    return correctAnswerId + '-container';
+}
+
+function disableOptions(){
+    var array = ['op1-container', 'op2-container', 'op3-container', 'op4-container'];
+    array.forEach(element => {
+        var temp = document.getElementById(element);
+        temp.classList.add("disable");
+    });
+}
+
+function enableOptions(){
+    var array = ['op1-container', 'op2-container', 'op3-container', 'op4-container'];
+    array.forEach(element => {
+        var temp = document.getElementById(element);
+        temp.classList.remove("disable");
+    });
+}

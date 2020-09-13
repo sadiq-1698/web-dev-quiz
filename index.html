@@ -13,12 +13,28 @@
     <link rel="stylesheet" href="css/options.css">
     <link rel="stylesheet" href="css/question-number.css">
     <link rel="stylesheet" href="css/question.css">
+    <link rel="stylesheet" href="css/intro-modal.css">
 </head>
 
 <body>
-    <div class="container">
+    <!-- Intro modal start -->
+    <div class="temp-body" id="temp-body">
+        <div class="modal-container" id="modal-container">
+            <div class="megabit-logo-mobile" id="logo">
+                <img src="images/megabit-logo.svg" width="70px" height="70px" alt="">
+            </div>
+            <div class="intro-dialogue">
+                <h4>Are you ready to play <br><br><span class="golden-dialogue">WHO WANTS TO BE A MEGADEV ?</span></h4>
+            </div>
+            <div class="bring-it-on">
+                <button id="start-game">Bring it on!</button>
+            </div>
+        </div>
+    </div>
+    <!-- Intro modal end -->
+    <div class="container" id="game-container">
         <!-- Megabit logo start-->
-        <div class="megabit-logo-mobile">
+        <div class="megabit-logo-mobile" id="logo">
             <img src="images/megabit-logo.svg" width="90px" height="90px" alt="">
         </div>
         <div class="megabit-logo-lap">
@@ -28,37 +44,37 @@
         <!-- Question number start-->
         <div class="question-number-container">
             <div class="question-number">
-                <h2>Question 3</h2>
+                <h2>Question <span id="question-number"></span></h2>
             </div>
         </div>
         <!-- Question number start-->
         <!-- Question start-->
         <div class="question-container">
-            <p>
-                Which of the following is not a type in Javascript?
+            <p id="question">
+
             </p>
         </div>
         <!-- Question end-->
         <!-- Option start-->
         <div class="options-container">
-            <div class="option">
+            <div class="option" id="op1-container" onclick="onOptionChoose(this.id);">
                 <div class="option-text-container">
-                    <span>integer</span>
+                    <span id="op1"></span>
                 </div>
             </div>
-            <div class="option" id="test">
+            <div class="option" id="op2-container" onclick="onOptionChoose(this.id);">
                 <div class="option-text-container">
-                    <span>string</span>
+                    <span id="op2"></span>
                 </div>
             </div>
-            <div class="option">
+            <div class="option" id="op3-container" onclick="onOptionChoose(this.id);">
                 <div class="option-text-container">
-                    <span>boolean</span>
+                    <span id="op3"></span>
                 </div>
             </div>
-            <div class="option">
+            <div class="option" id="op4-container" onclick="onOptionChoose(this.id);">
                 <div class="option-text-container">
-                    <span>number</span>
+                    <span id="op4"></span>
                 </div>
             </div>
         </div>
@@ -75,53 +91,53 @@
             </div>
             <div class="temp-stepper">
                 <div class="temp-five-seperator">
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-1">
                         <h4>1</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-2">
                         <h4>2</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-3">
                         <h4>3</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-4">
                         <h4>4</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-5">
                         <h4>5</h4>
                     </div>
                 </div>
                 <div class="temp-five-seperator">
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-6">
                         <h4>6</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-7">
                         <h4>7</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-8">
                         <h4>8</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-9">
                         <h4>9</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-10">
                         <h4>10</h4>
                     </div>
                 </div>
                 <div class="temp-five-seperator">
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-11">
                         <h4>11</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-12">
                         <h4>12</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-13">
                         <h4>13</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-14">
                         <h4>14</h4>
                     </div>
-                    <div class="temp-stepper-content">
+                    <div class="temp-stepper-content" id="circle-15">
                         <h4>15</h4>
                     </div>
                 </div>

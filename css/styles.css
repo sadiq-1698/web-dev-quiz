@@ -9,46 +9,19 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.container {
-    margin: 1rem;
-}
-
-.container .lifeline-stepper-container {
-    width: 100%;
-    height: 250px;
+.temp-body{
+    height: 100vh;
+    width : 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid skyblue;
-    background-color: brown;
 }
 
-.container .lifeline-stepper-container .lifeline-container {
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    margin-right: 1rem;
-    background-color: yellow;
-}
 
-.container .lifeline-stepper-container .stepper-container {
-    height: 150px;
-    border: 2px solid skyblue;
-    border-radius: 10px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: orangered;
-}
 
-.container .lifeline-stepper-container .stepper-container .five-seperator {
-    display: flex;
-    justify-content: space-between;
-}
-
-.container .lifeline-stepper-container .stepper-container li {
+.container {
+    display: none;
     margin: 1rem;
-    list-style: none;
 }
 
 .container .temp-main {

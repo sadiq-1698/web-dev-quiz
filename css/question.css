@@ -14,6 +14,7 @@
 }
 
 .container .question-container p {
+    transition : .5s ease;
     margin: 10px 25px 10px 45px;
 }
 
