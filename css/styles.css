@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #040e20;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    margin: 1rem;
+}
+
+.container .lifeline-stepper-container {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid skyblue;
+    background-color: brown;
+}
+
+.container .lifeline-stepper-container .lifeline-container {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    background-color: yellow;
+}
+
+.container .lifeline-stepper-container .stepper-container {
+    height: 150px;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: orangered;
+}
+
+.container .lifeline-stepper-container .stepper-container .five-seperator {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .lifeline-stepper-container .stepper-container li {
+    margin: 1rem;
+    list-style: none;
+}
+
+.container .temp-main {
+    height: 150px;
+    display: flex;
+    border : 2px solid skyblue;
+    border-radius : 10px;
+}
+
+.container .temp-main .temp-lifeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left : 4px;
+    border-right : 2px solid skyblue;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-right: 6px;
+}
+
+.container .temp-main .temp-lifeline .temp-fifty {
+    margin-top: 6px;
+    height: 65px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: goldenrod;
+    font-weight: bolder;
+    cursor : pointer;
+}
+
+.container .temp-main .temp-lifeline .temp-chance {
+    margin-top: 6px;
+    height: 65px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    color: goldenrod;
+    font-weight: bolder;
+    cursor : pointer;
+}
+
+.container .temp-main .temp-lifeline .temp-chance:hover, .temp-fifty:hover{
+    background: lightgray;
+}
+
+.container .temp-main .temp-stepper {
+    margin-left: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 8px;
+
+}
+
+.container .temp-main .temp-stepper .temp-five-seperator {
+    flex : 1;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .temp-main .temp-stepper .temp-stepper-content{
+    height : 30px;
+    width : 30px;
+    display: flex;
+    border-radius : 50%;
+    justify-content: center;
+    align-items: center;
+    border : 1px solid white;
+}

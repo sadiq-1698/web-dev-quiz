@@ -1,0 +1,36 @@
+.container .options-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.container .options-container .option {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    padding: 0.7rem;
+    transition: .3s ease;
+}
+
+.container .options-container .option:hover {
+    cursor: pointer;
+    background: lightgray;
+}
+
+.container .options-container .option .option-text-container span {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 75%;
+    cursor: pointer;
+    color : goldenrod;
+}
+

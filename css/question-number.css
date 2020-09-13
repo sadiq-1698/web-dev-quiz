@@ -1,0 +1,10 @@
+.container .question-number-container {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    margin-bottom: 0.4rem;
+}
+

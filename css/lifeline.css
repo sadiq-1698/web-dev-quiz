@@ -1,0 +1,26 @@
+.container .lifeline-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+
+.container .lifeline-container .fifty-fifty, .two-chance {
+    height: 70px;
+    width: 70px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+}
+
+.container .lifeline-container .fifty-fifty:hover, .two-chance:hover {
+    cursor: pointer;
+    background: lightgray;
+}
+
+.container .lifeline-container .fifty-fifty h2, .two-chance h2{
+    font-size: 100%;
+}
+

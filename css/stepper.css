@@ -1,0 +1,15 @@
+
+.list-item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-right: 0.5rem;
+}
+
+.list-item-container h6 {
+    font-size: 40%;
+}

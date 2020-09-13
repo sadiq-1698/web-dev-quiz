@@ -1,0 +1,12 @@
+
+
+.container .megabit-logo-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.container .megabit-logo-lap {
+    display: none;
+}
