@@ -2,150 +2,174 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/stepper.css">
-    <link rel="stylesheet" href="css/lifeline.css">
-    <link rel="stylesheet" href="css/logo.css">
-    <link rel="stylesheet" href="css/options.css">
-    <link rel="stylesheet" href="css/question-number.css">
-    <link rel="stylesheet" href="css/question.css">
-    <link rel="stylesheet" href="css/intro-modal.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Who wants to be a MEGADEV</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/stepper.css" />
+  <link rel="stylesheet" href="css/lifeline.css" />
+  <link rel="stylesheet" href="css/logo.css" />
+  <link rel="stylesheet" href="css/options.css" />
+  <link rel="stylesheet" href="css/question-number.css" />
+  <link rel="stylesheet" href="css/question.css" />
+  <link rel="stylesheet" href="css/intro-modal.css" />
 </head>
 
 <body>
-    <!-- Intro modal start -->
-    <div class="temp-body" id="temp-body">
-        <div class="modal-container" id="modal-container">
-            <div class="megabit-logo-mobile" id="logo">
-                <img src="images/megabit-logo.svg" width="70px" height="70px" alt="">
-            </div>
-            <div class="intro-dialogue">
-                <h4>Are you ready to play <br><br><span class="golden-dialogue">WHO WANTS TO BE A MEGADEV ?</span></h4>
-            </div>
-            <div class="bring-it-on">
-                <button id="start-game">Bring it on!</button>
-            </div>
-        </div>
+  <!-- Intro modal start -->
+  <div class="temp-body" id="temp-body">
+    <div class="modal-container" id="modal-container">
+      <div class="megabit-logo-mobile" id="logo">
+        <img src="images/megabit-logo.svg" width="70px" height="70px" alt="" />
+      </div>
+      <div class="intro-dialogue">
+        <h4>
+          Are you ready to play <br /><br /><span class="golden-dialogue">WHO WANTS TO BE A MEGADEV ?</span>
+        </h4>
+      </div>
+      <div class="bring-it-on">
+        <button id="start-game">Bring it on!</button>
+      </div>
     </div>
-    <!-- Intro modal end -->
-    <div class="container" id="game-container">
-        <!-- Megabit logo start-->
-        <div class="megabit-logo-mobile" id="logo">
-            <img src="images/megabit-logo.svg" width="90px" height="90px" alt="">
+    <div class="complete-modal-container" id="complete-modal-container">
+      <div class="megabit-logo-mobile" id="logo">
+        <img src="images/megabit-logo.svg" width="70px" height="70px" alt="" />
+      </div>
+      <div class="intro-dialogue">
+        <h4 id="less-than-seven">
+          Decent try! <br /><br /><span class="golden-dialogue">YOU CAN STILL BE A MEGADEV</span>
+        </h4>
+        <h4 id="less-than-fifteen">
+          Impressive!<br /><br /><span class="golden-dialogue">YOU CAN STILL BE A MEGADEV</span>
+        </h4>
+        <h4 id="victory">
+          Congratulations! <br /><br /><span class="golden-dialogue">YOU ARE A MEGADEV</span>
+        </h4>
+      </div>
+      <div class="bring-it-on">
+        <button onclick="onTryAgain();">Try Again!</button>
+      </div>
+    </div>
+  </div>
+  <!-- Intro modal end -->
+  <!-- Game containe starts -->
+  <div class="container" id="game-container">
+    <!-- Megabit logo start-->
+    <div class="megabit-logo-mobile" id="logo">
+      <img src="images/megabit-logo.svg" width="90px" height="90px" alt="" />
+    </div>
+    <div class="megabit-logo-lap">
+      <img src="images/megabit-logo.svg" width="150px" height="150px" alt="" />
+    </div>
+    <!-- Megabit logo end-->
+    <!-- Question number start-->
+    <div class="question-number-container">
+      <div class="question-number">
+        <h2>Question <span id="question-number"></span></h2>
+      </div>
+    </div>
+    <!-- Question number start-->
+    <!-- Question start-->
+    <div class="question-container">
+      <p id="question"></p>
+    </div>
+    <!-- Question end-->
+    <!-- Option start-->
+    <div class="options-container">
+      <div class="option" id="op1-container" onclick="onOptionChoose(this.id);">
+        <div class="option-text-container">
+          <span id="op1"></span>
         </div>
-        <div class="megabit-logo-lap">
-            <img src="images/megabit-logo.svg" width="150px" height="150px" alt="">
+      </div>
+      <div class="option" id="op2-container" onclick="onOptionChoose(this.id);">
+        <div class="option-text-container">
+          <span id="op2"></span>
         </div>
-        <!-- Megabit logo end-->
-        <!-- Question number start-->
-        <div class="question-number-container">
-            <div class="question-number">
-                <h2>Question <span id="question-number"></span></h2>
-            </div>
+      </div>
+      <div class="option" id="op3-container" onclick="onOptionChoose(this.id);">
+        <div class="option-text-container">
+          <span id="op3"></span>
         </div>
-        <!-- Question number start-->
-        <!-- Question start-->
-        <div class="question-container">
-            <p id="question">
+      </div>
+      <div class="option" id="op4-container" onclick="onOptionChoose(this.id);">
+        <div class="option-text-container">
+          <span id="op4"></span>
+        </div>
+      </div>
+    </div>
+    <!-- Option end-->
+    <!-- Stepper start -->
+    <div class="temp-main">
+      <div class="temp-lifeline">
+        <div class="temp-fifty" id="temp-fifty" onclick="onChosenFiftyFifty();">
+          50:50
+          <img id="cross-mark-1" src="images/cross-mark.png" width="50px" height="50px">
+        </div>
+        <div class="temp-chance" id="temp-chance" onclick="onChosenSecondChance();">
+          2x
+          <img id="cross-mark-2" src="images/cross-mark.png" width="50px" height="50px">
+        </div>
+      </div>
+      <div class="temp-stepper">
+        <div class="temp-five-seperator">
+          <div class="temp-stepper-content" id="circle-1">
+            <h4>1</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-2">
+            <h4>2</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-3">
+            <h4>3</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-4">
+            <h4>4</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-5">
+            <h4>5</h4>
+          </div>
+        </div>
+        <div class="temp-five-seperator">
+          <div class="temp-stepper-content" id="circle-6">
+            <h4>6</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-7">
+            <h4>7</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-8">
+            <h4>8</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-9">
+            <h4>9</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-10">
+            <h4>10</h4>
+          </div>
+        </div>
+        <div class="temp-five-seperator">
+          <div class="temp-stepper-content" id="circle-11">
+            <h4>11</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-12">
+            <h4>12</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-13">
+            <h4>13</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-14">
+            <h4>14</h4>
+          </div>
+          <div class="temp-stepper-content" id="circle-15">
+            <h4>15</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Stepper end -->
+  </div>
+  <!-- Game containe starts -->
 
-            </p>
-        </div>
-        <!-- Question end-->
-        <!-- Option start-->
-        <div class="options-container">
-            <div class="option" id="op1-container" onclick="onOptionChoose(this.id);">
-                <div class="option-text-container">
-                    <span id="op1"></span>
-                </div>
-            </div>
-            <div class="option" id="op2-container" onclick="onOptionChoose(this.id);">
-                <div class="option-text-container">
-                    <span id="op2"></span>
-                </div>
-            </div>
-            <div class="option" id="op3-container" onclick="onOptionChoose(this.id);">
-                <div class="option-text-container">
-                    <span id="op3"></span>
-                </div>
-            </div>
-            <div class="option" id="op4-container" onclick="onOptionChoose(this.id);">
-                <div class="option-text-container">
-                    <span id="op4"></span>
-                </div>
-            </div>
-        </div>
-        <!-- Option end-->
-        <!-- Stepper start -->
-        <div class="temp-main">
-            <div class="temp-lifeline">
-                <div class="temp-fifty">
-                    50:50
-                </div>
-                <div class="temp-chance">
-                    2x
-                </div>
-            </div>
-            <div class="temp-stepper">
-                <div class="temp-five-seperator">
-                    <div class="temp-stepper-content" id="circle-1">
-                        <h4>1</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-2">
-                        <h4>2</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-3">
-                        <h4>3</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-4">
-                        <h4>4</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-5">
-                        <h4>5</h4>
-                    </div>
-                </div>
-                <div class="temp-five-seperator">
-                    <div class="temp-stepper-content" id="circle-6">
-                        <h4>6</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-7">
-                        <h4>7</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-8">
-                        <h4>8</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-9">
-                        <h4>9</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-10">
-                        <h4>10</h4>
-                    </div>
-                </div>
-                <div class="temp-five-seperator">
-                    <div class="temp-stepper-content" id="circle-11">
-                        <h4>11</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-12">
-                        <h4>12</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-13">
-                        <h4>13</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-14">
-                        <h4>14</h4>
-                    </div>
-                    <div class="temp-stepper-content" id="circle-15">
-                        <h4>15</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Stepper end -->
-    </div>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

@@ -171,12 +171,30 @@ function onOptionChoose(id) {
     var chosenElement = document.getElementById(id);
     var chosenOption = chosenElement.innerText.trim();
     var correctOption = CURRENT_CORRECT_OPTION.innerText.trim();
-    var correctOptionID = getCurrentQuestionId();
+    var correctOptionID = getCorrectAnswerId();
+    if (CHOSE_SECOND_CHANCE === true) {
+        if (!isEqual(chosenOption, correctOption)) {
+            chosenElement.classList.add("hold");
+            CHOSE_SECOND_CHANCE = false;
+            return;
+        } else {
+            disableOptions();
+            updateBackgroundUponCorrect(id);
+            setTimeout(() => {
+                markCompletedQuestions();
+                enableOptions();
+                updateVictoryText();
+                showCompleteModal();
+            }, 1500);
+            CHOSE_SECOND_CHANCE = false;
+            return;
+        }
+    }
     disableOptions();
     if (isEqual(chosenOption, correctOption)) {
         updateBackgroundUponCorrect(id);
         setTimeout(() => {
-            markCompleteQuestions();
+            markCompletedQuestions();
             displayQuestion();
             enableOptions();
         }, 1500);
@@ -184,16 +202,24 @@ function onOptionChoose(id) {
         updateBackgroundUponCorrect(correctOptionID);
         updateBackgroundUponWrong(id);
         setTimeout(() => {
-            markCompleteQuestions();
-            displayQuestion();
+            hideGameContainer();
+            updateVictoryText();
+            showCompleteModal();
+            markCompletedQuestions();
             enableOptions();
         }, 1500);
     }
 }
 
 function displayQuestion() {
+    setOptionsColorActive();
     CURRENT_QUESTION_NUMBER++;
-    if (isSixteenthQuestion()) return;
+    if (isSixteenthQuestion()){
+        updateVictoryText();
+        hideGameContainer();
+        showCompleteModal();
+        return;
+    }
     var randomQuestion = Math.floor(Math.random() * easyQuestions.length);
     while (ASKED_QUESTIONS.includes(randomQuestion)) {
         randomQuestion = Math.floor(Math.random() * easyQuestions.length);
@@ -218,7 +244,7 @@ function isEqual(a, b) {
     return false;
 }
 
-function markCompleteQuestions() {
+function markCompletedQuestions() {
     var element = document.getElementById('circle-' + String(CURRENT_QUESTION_NUMBER));
     element.style.color = 'green';
     element.style.border = '2px solid green';
@@ -230,6 +256,7 @@ function setDefaultOptionBackground() {
         var temp = document.getElementById(element);
         temp.classList.remove('correct');
         temp.classList.remove('wrong');
+        temp.classList.remove('hold');
         temp.classList.add("option");
     });
 }
@@ -261,14 +288,14 @@ function updateBackgroundUponWrong(id) {
     element.classList.remove("option");
 }
 
-function getCurrentQuestionId() {
+function getCorrectAnswerId() {
     var getIndex = ASKED_QUESTIONS[ASKED_QUESTIONS.length - 1];
     var correctAnswer = easyQuestions[getIndex].answer;
     var correctAnswerId = correctAnswer.id.trim();
     return correctAnswerId + '-container';
 }
 
-function disableOptions(){
+function disableOptions() {
     var array = ['op1-container', 'op2-container', 'op3-container', 'op4-container'];
     array.forEach(element => {
         var temp = document.getElementById(element);
@@ -276,10 +303,87 @@ function disableOptions(){
     });
 }
 
-function enableOptions(){
+function enableOptions() {
     var array = ['op1-container', 'op2-container', 'op3-container', 'op4-container'];
     array.forEach(element => {
         var temp = document.getElementById(element);
         temp.classList.remove("disable");
     });
+}
+
+function onChosenFiftyFifty() {
+    CHOSE_FIFTY_FIFTY = true;
+    var fiftyFiftyElement = document.getElementById('temp-fifty');
+    fiftyFiftyElement.classList.add('disable');
+    document.getElementById('cross-mark-1').style.display = 'block';
+    var array = ['op1-container', 'op2-container', 'op3-container', 'op4-container'];
+    var correctAnswerID = getCorrectAnswerId();
+    var chooseFirstWrongOption = Math.floor(Math.random() * array.length);
+    while (array[chooseFirstWrongOption] === correctAnswerID) {
+        chooseFirstWrongOption = Math.floor(Math.random() * array.length);
+    }
+    var chooseSecondWrongOption = Math.floor(Math.random() * array.length);
+    while (array[chooseSecondWrongOption] === correctAnswerID || chooseFirstWrongOption === chooseSecondWrongOption) {
+        chooseSecondWrongOption = Math.floor(Math.random() * array.length);
+    }
+    updateOptionBackgroundOnFiftyFifty(array[chooseFirstWrongOption], array[chooseSecondWrongOption]);
+}
+
+function updateOptionBackgroundOnFiftyFifty(a, b) {
+    var firstOptionTextID = a.split("-")[0];
+    var secondOptionTextID = b.split("-")[0];
+    var firstOption = document.getElementById(a);
+    var secondOption = document.getElementById(b);
+    firstOption.classList.add('disable');
+    secondOption.classList.add('disable');
+    firstOption.style.color = '#040e20';
+    secondOption.style.color = "#040e20";
+    document.getElementById(firstOptionTextID).style.color = "#040e20";
+    document.getElementById(secondOptionTextID).style.color = "#040e20";
+}
+
+function setOptionsColorActive() {
+    document.getElementById('op1').style.color = "goldenrod";
+    document.getElementById('op2').style.color = "goldenrod";
+    document.getElementById('op3').style.color = "goldenrod";
+    document.getElementById('op4').style.color = "goldenrod";
+}
+
+function onChosenSecondChance() {
+    CHOSE_SECOND_CHANCE = true;
+    var secondChanceElement = document.getElementById('temp-chance');
+    secondChanceElement.classList.add('disable');
+    document.getElementById('cross-mark-2').style.display = 'block';
+}
+
+var ON_VICTORY_PLAIN_TEXT = "";
+var ON_VICTORY_GOLDEN_TEXT = "";
+
+function updateVictoryText() {
+    if (CURRENT_QUESTION_NUMBER >= 15) {
+        document.getElementById('less-than-seven').style.display = "none";
+        document.getElementById('less-than-fifteen').style.display = "none";
+    } else if (CURRENT_QUESTION_NUMBER < 15 && CURRENT_QUESTION_NUMBER > 7) {
+        document.getElementById('less-than-seven').style.display = "none";
+        document.getElementById('victory').style.display = "none";
+    } else {
+        document.getElementById('less-than-fifteen').style.display = "none";
+        document.getElementById('victory').style.display = "none";
+    }
+}
+
+function showCompleteModal() {
+    document.getElementById('temp-body').style.display = 'flex';
+    document.getElementById('modal-container').style.display = 'none';
+    var modal = document.getElementById('complete-modal-container');
+    modal.style.display = 'flex';
+}
+
+function hideGameContainer() {
+    var container = document.getElementById('game-container');
+    container.style.display = 'none';
+}
+
+function onTryAgain(){
+    location.reload();
 }

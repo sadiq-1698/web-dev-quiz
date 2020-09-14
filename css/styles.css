@@ -9,15 +9,13 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.temp-body{
+.temp-body {
     height: 100vh;
-    width : 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
 
 .container {
     display: none;
@@ -27,16 +25,16 @@ body {
 .container .temp-main {
     height: 150px;
     display: flex;
-    border : 2px solid skyblue;
-    border-radius : 10px;
+    border: 2px solid skyblue;
+    border-radius: 10px;
 }
 
 .container .temp-main .temp-lifeline {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-left : 4px;
-    border-right : 2px solid skyblue;
+    padding-left: 4px;
+    border-right: 2px solid skyblue;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding-right: 6px;
@@ -53,7 +51,7 @@ body {
     border-radius: 10px;
     color: goldenrod;
     font-weight: bolder;
-    cursor : pointer;
+    cursor: pointer;
 }
 
 .container .temp-main .temp-lifeline .temp-chance {
@@ -68,10 +66,11 @@ body {
     margin-bottom: 6px;
     color: goldenrod;
     font-weight: bolder;
-    cursor : pointer;
+    cursor: pointer;
 }
 
-.container .temp-main .temp-lifeline .temp-chance:hover, .temp-fifty:hover{
+.container .temp-main .temp-lifeline .temp-chance:hover,
+.temp-fifty:hover {
     background: lightgray;
 }
 
@@ -86,19 +85,114 @@ body {
 }
 
 .container .temp-main .temp-stepper .temp-five-seperator {
-    flex : 1;
+    flex: 1;
     height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.container .temp-main .temp-stepper .temp-stepper-content{
-    height : 30px;
-    width : 30px;
+.container .temp-main .temp-stepper .temp-stepper-content {
+    height: 30px;
+    width: 30px;
     display: flex;
-    border-radius : 50%;
+    border-radius: 50%;
     justify-content: center;
     align-items: center;
-    border : 1px solid white;
+    border: 1px solid white;
+}
+
+@media screen and (max-height: 850px) {
+    .container .temp-main {
+        height: 200px;
+    }
+
+    .container .temp-main .temp-lifeline .temp-fifty {
+        margin-top: 1.5rem;
+    }
+
+    .container .temp-main .temp-lifeline .temp-chance {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-height: 785px) {
+    .container .temp-main {
+        height: 190px;
+    }
+
+    .container .temp-main .temp-lifeline .temp-fifty {
+        margin-top: 1.3rem;
+    }
+
+    .container .temp-main .temp-lifeline .temp-chance {
+        margin-bottom: 1.3rem;
+    }
+}
+
+@media screen and (max-height: 568px) {
+    .container .temp-main {
+        height: 140px;
+    }
+
+    .container .temp-main .temp-lifeline .temp-fifty {
+        margin-top: 6px;
+    }
+
+    .container .temp-main .temp-lifeline .temp-chance {
+        margin-bottom: 6px;
+    }
+}
+
+@media screen and (max-height: 690px) {
+    .container .temp-main {
+        height: 160px;
+    }
+
+    .container .temp-main .temp-lifeline .temp-fifty {
+        margin-top: 12px;
+    }
+
+    .container .temp-main .temp-lifeline .temp-chance {
+        margin-bottom: 12px;
+    }
+}
+
+@media screen and (max-height: 670px) {
+    .container .temp-main {
+        height: 150px;
+    }
+
+    .container .temp-main .temp-lifeline .temp-fifty {
+        margin-top: 10px;
+    }
+
+    .container .temp-main .temp-lifeline .temp-chance {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .container .temp-main .temp-stepper .temp-five-seperator {
+        flex: 1;
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .container .temp-main .temp-stepper .temp-stepper-content {
+        height: 25px;
+        width: 25px;
+        display: flex;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid white;
+    }
+
+    .container .temp-main .temp-stepper .temp-stepper-content h4{
+        font-size : 70%;
+    }
+    
 }

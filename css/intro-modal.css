@@ -1,45 +1,96 @@
-.modal-container{
-    width : 250px;
-    height : 230px;
+.modal-container {
+    width: 250px;
+    height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border-radius : 10px;
-    border : 2px solid skyblue;
+    border-radius: 10px;
+    border: 2px solid skyblue;
 }
 
-.modal-container .intro-dialogue{
+.modal-container .intro-dialogue {
     text-align: center;
     font-size: 14px;
     margin-bottom: 1rem;
 }
 
-.modal-container .intro-dialogue h4 .golden-dialogue{
+.modal-container .intro-dialogue h4 .golden-dialogue {
     color: goldenrod;
-    font-size : 20px;
+    font-size: 20px;
 }
 
-.modal-container .bring-it-on{
+.modal-container .bring-it-on {
     display: flex;
     justify-content: center;
     align-items: center;
-    height : 40px;
-    width : 60px;
+    height: 40px;
+    width: 60px;
 }
 
-.modal-container .bring-it-on button{
-    padding :  8px 40px;
+.modal-container .bring-it-on button {
+    padding: 8px 40px;
     outline: none;
     border-radius: 10px;
-    border : 2px solid skyblue;
+    border: 2px solid skyblue;
     background: transparent;
     cursor: pointer;
-    color : white;
+    color: white;
     margin-bottom: 8px;
 }
 
-.modal-container .bring-it-on button:hover{
+.modal-container .bring-it-on button:hover {
+    background: lightgray;
+    color: goldenrod;
+}
+
+.complete-modal-container{
+    display: none;
+    width: 250px;
+    height: 230px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid skyblue;
+}
+
+.complete-modal-container .intro-dialogue {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.complete-modal-container .intro-dialogue h4 .golden-dialogue {
+    color: goldenrod;
+    font-size: 20px;
+}
+
+.complete-modal-container .intro-dialogue h4 span {
+    color: goldenrod;
+    font-size: 20px;
+}
+
+.complete-modal-container .bring-it-on {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 60px;
+}
+
+.complete-modal-container .bring-it-on button {
+    padding: 8px 40px;
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid skyblue;
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.complete-modal-container .bring-it-on button:hover {
     background: lightgray;
     color: goldenrod;
 }
