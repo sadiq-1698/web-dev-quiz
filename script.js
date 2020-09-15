@@ -1,11 +1,11 @@
 const easyQuestions = [{
         id: 1,
-        question: 'What is the correct HTML for referring to an external style sheet?',
-        op1: '&ltstylesheet&gtmystyle.css&lt/stylesheet&gt',
-        op2: '&ltlink src="style.css" rel="stylesheet"&gt',
-        op3: '&ltstyle src="style.css"&gt',
-        op4: '&ltcascade src="style.css"&gt',
-        answer: this.op2,
+        question: 'Which value to choose if you want to fill an entire background with an image without distoring the aspect ratio?',
+        op1: 'cover',
+        op2: 'fill',
+        op3: '100%',
+        op4: 'contain',
+        answer: this.op1,
     },
 
     {
@@ -40,12 +40,12 @@ const easyQuestions = [{
 
     {
         id: 5,
-        question: 'Which is the correct CSS syntax?',
-        op1: 'body { background-color: red; }',
-        op2: 'body : background-color: {red};',
-        op3: '{body = background-color: red; }',
-        op4: '{body : background-color = red; }',
-        answer: this.op1,
+        question: 'How do you define a custom property in CSS?',
+        op1: '$custom-property = 10',
+        op2: 'custom-property = 10',
+        op3: '$custom-property : 10',
+        op4: 'custom-property : 10',
+        answer: this.op4,
     },
 
     {
