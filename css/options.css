@@ -31,11 +31,11 @@
     border-radius: 10px;
     padding: 0.7rem;
     transition: .3s ease;
-    background: lightgreen;
+    background: #33ff99;
 }
 
 .correct:hover {
-    background: lightgreen;
+    background: #33ff99;
     cursor: pointer;
 }
 
@@ -48,15 +48,16 @@
     border-radius: 10px;
     padding: 0.7rem;
     transition: .3s ease;
-    background:lightcoral;
+    background: lightcoral;
 }
 
 .wrong:hover {
     background: lightcoral;
+    filter: brightness(80%);
     cursor: pointer;
 }
 
-.hold{
+.hold {
     height: auto;
     display: flex;
     justify-content: center;
@@ -65,11 +66,12 @@
     border-radius: 10px;
     padding: 0.7rem;
     transition: .3s ease;
-    background:lightgray;  
+    background: lightgray;
 }
 
-.hold:hover{
+.hold:hover {
     pointer-events: none;
+    color: white;
 }
 
 .disable {
@@ -82,15 +84,14 @@
     border: none;
     outline: none;
     background: transparent;
-    color: white;
     font-size: 75%;
     cursor: pointer;
     font-weight: bold;
     color: goldenrod;
 }
 
-.hide-text{
-    color : #040e20;
+.hide-text {
+    color: #040e20;
 }
 
 @media screen and (max-height: 850px) {
@@ -106,9 +107,9 @@
 }
 
 @media screen and (max-height: 740px) {
-    .container .options-container{
+    .container .options-container {
         margin-bottom: 1.8rem;
-    }   
+    }
 }
 
 @media screen and (max-height: 568px) {

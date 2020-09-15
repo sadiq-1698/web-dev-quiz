@@ -265,22 +265,35 @@ function setQuestion(index) {
 }
 
 function setOptions(index) {
+    var array = ['op1','op2','op3','op4'];
     document.getElementById('op1').innerHTML = easyQuestions[index].op1;
     document.getElementById('op2').innerHTML = easyQuestions[index].op2;
     document.getElementById('op3').innerHTML = easyQuestions[index].op3;
     document.getElementById('op4').innerHTML = easyQuestions[index].op4;
+    array.forEach(element => {
+        var temp = document.getElementById(element);
+        temp.classList.remove('white-text');
+    });
 }
 
 function updateBackgroundUponCorrect(id) {
     var element = document.getElementById(id);
     element.classList.add("correct");
     element.classList.remove("option");
+    var elementTextID = id.split("-")[0];
+    var elementText = document.getElementById(elementTextID);
+    elementText.style.color = 'white';
+    elementText.style.fontWeight = 'bold';
 }
 
 function updateBackgroundUponWrong(id) {
     var element = document.getElementById(id);
     element.classList.add("wrong");
     element.classList.remove("option");
+    var elementTextID = id.split("-")[0];
+    var elementText = document.getElementById(elementTextID);
+    elementText.style.color = 'white';
+    elementText.style.fontWeight = 'bold';
 }
 
 function getCorrectAnswerId() {
