@@ -413,3 +413,4 @@ function isEqual(a, b) {
 function onTryAgain() {
     location.reload();
 }
+
